@@ -1,0 +1,88 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200&display=swap");
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+body {
+  font-family: "Poppins", "Franklin Gothic Medium", "Arial Narrow", Arial,
+    sans-serif;
+}
+a {
+  text-decoration: none;
+}
+.signupPage-container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.signupPageForm-container {
+  margin: 0 auto;
+  width: 380px;
+  height: fit-content;
+  /* background-color: rebeccapurple; */
+  padding: 20px 30px;
+  -webkit-box-shadow: -2px 3px 69px -5px rgba(0, 0, 0, 0.14);
+  -moz-box-shadow: -2px 3px 69px -5px rgba(0, 0, 0, 0.14);
+  box-shadow: -2px 3px 69px -5px rgba(0, 0, 0, 0.14);
+}
+.signupPageLogo {
+  text-align: center;
+  font-weight: 600;
+  font-size: 28px;
+  margin: 30px;
+  color: rgb(188, 54, 146);
+}
+.signupPageForm {
+  display: flex;
+  flex-direction: column;
+  /* background-color: rgb(170, 127, 213); */
+}
+.signupInput-Wrapper {
+  margin: 0 auto;
+  display: flex;
+}
+.signupPageInputs {
+  position: relative;
+  display: block;
+}
+.signupPageInputs > input {
+  width: 100%;
+  margin: 0;
+  border-radius: 6px;
+  font-size: 16px;
+  padding: 12px 20px;
+  margin-bottom: 18px;
+  border: 1px solid grey;
+}
+.signupPageInputs > label {
+  position: absolute;
+  font-size: 14px;
+  color: grey;
+  left: 12px;
+  top: -12px;
+  padding: 0 10px;
+  background-color: white;
+}
+
+.btn {
+  cursor: pointer;
+  width: 100%;
+  height: 40px;
+  margin: 20px 0;
+  background-color: rgb(188, 54, 146);
+  border: none;
+  color: white;
+  font-size: 16px;
+}
+.signupPage-SignInLink {
+  text-align: center;
+}
+.signupPage-SignInLink span a {
+  color: red;
+}
+.signupPage-SignInLink span a:hover {
+  text-decoration: underline;
+  color: blue;
+}
