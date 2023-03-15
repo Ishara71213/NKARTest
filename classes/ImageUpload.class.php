@@ -3,11 +3,9 @@
 class ImageUpload{
 
     private $file;
-    // private $lastUserId;
 
     function __construct($file){
         $this->file=$file;
-        // $this->lastUserId=$lastUserId;
 
     }
 
