@@ -5,33 +5,46 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../view/Signup.css" />
+    <link rel="stylesheet" href="../view/styles.css" />
     <title>NKAR | TEST</title>
 </head>
 
 <body>
-    <div class="signupPage-container">
-        <div class="signupPageForm-container">
-            <div class="signupPageLogo">Sign Up</div>
-            <form class="signupPageForm" method="post">
-                <div class="signupPageInput-Wrapper">
+    <div class="slPage-container">
+        <div class="slPageForm-container">
+            <div class="backEndError  displayNone" id="errorContainer">
+                <img src="../img/error.svg" alt="errorlogo" width="15px" />
+                <p id="backEndError"></P>
+            </div>
 
-                    <div class="signupPageInputs">
-                        <label for="Email" class="signupLable"> Email</label>
+            <div class="slPageLogo mgLogoLoginPage ">Log In</div>
+            <form class="slPageForm" method="post">
+                <div class="slPageInput-Wrapper">
+
+                    <div class="slPageInputs">
+                        <div class="labelPlaceholder">
+                            <label for="Email" class="slLable"> Email</label>
+                        </div>
                         <input type="email" id="email" name="email" />
                     </div>
-                    <div class="signupPageInputs">
-                        <label for="password" class="signupLable">Password</label>
+                    <div class="slPageInputs">
+                        <div class="labelPlaceholder">
+                            <label for="password" class="slLable">Password</label>
+                        </div>
                         <input type="password" id="password" name="password" />
                     </div>
                     <button type="submit" class="btn" name="submit">Sign In</button>
-                    <p class="signupPage-SignInLink">
+                    <p class="slPage-SignInLink  forgottenPassword">
+                        <span><a href="?action=signup">Forgotten password?</a></span>
+                    </p>
+                    <p class="slPage-SignInLink signupLinkMg">
                         Already Have a account? <span><a href="?action=signup">Sign Up</a></span>
                     </p>
                 </div>
             </form>
         </div>
     </div>
+    <script src="./../script/formValidate.js"></script>
 </body>
 
 </html>

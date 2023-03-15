@@ -5,51 +5,69 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../view/Signup.css" />
-    <title>NKAR | SignUp</title>
+    <link rel="stylesheet" href="../view/styles.css" />
+    <title>NKAR | Test</title>
 </head>
 
 <body>
-    <div class="signupPage-container">
-        <div class="signupPageForm-container">
-            <div class="signupPageLogo">Sign Up</div>
-            <form class="signupPageForm" method="post" enctype="multipart/form-data">
-                <div class="signupPageInput-Wrapper">
-                    <div class="signupPageInputs">
-                        <label for="firstName" class="signupLable">First name</label>
-                        <input type="text" id="firstName" name="firstName" />
+    <div class="slPage-container">
+        <div class="slPageForm-container">
+            <div class="backEndError  displayNone" id="errorContainer">
+                <img src="../img/error.svg" alt="errorlogo" width="15px" />
+                <p id="backEndError"></P>
+            </div>
+            <div class="slPageLogo">Sign Up</div>
+            <form class="slPageForm" method="post" enctype="multipart/form-data">
+                <div class="slPageInput-Wrapper">
+                    <div class="slPageInputs">
+                        <div class="labelPlaceholder">
+                            <label for="firstName" class="slLable">First name</label>
+                        </div>
+                        <input type="text" id="firstName" name="firstName" onkeyup="checkFirstName()" />
+                        <p id="errFirstName"></p>
                     </div>
-                    <div class="signupPageInputs">
-                        <label for="lastName" class="signupLable"> Last name</label>
+                    <div class="slPageInputs">
+                        <div class="labelPlaceholder">
+                            <label for="lastName" class="slLable"> Last name</label>
+                        </div>
                         <input type="text" id="lastName" name="lastName" />
                     </div>
-                    <div class="signupPageInputs">
-                        <label for="Email" class="signupLable"> Email</label>
+                    <div class="slPageInputs">
+                        <div class="labelPlaceholder">
+                            <label for="Email" class="slLable"> Email</label>
+                        </div>
                         <input type="email" id="email" name="email" />
                     </div>
-                    <div class="signupPageInputs">
-                        <label for="password" class="signupLable">Password</label>
+                    <div class="slPageInputs">
+                        <div class="labelPlaceholder">
+                            <label for="password" class="slLable">Password</label>
+                        </div>
                         <input type="password" id="password" name="password" />
                     </div>
-                    <div class="signupPageInputs">
-                        <label for="confirmPassword" class="signupLable">Confirm password</label>
+                    <div class="slPageInputs">
+                        <div class="labelPlaceholder">
+                            <label for="confirmPassword" class="slLable">Confirm password</label>
+                        </div>
                         <input type="password" id="confirmPassword" name="confirmPassword" />
                     </div>
-                    <div class="signupPageInputs">
-                        <label for="mobilenumber" class="signupLable">Mobile Number</label>
+                    <div class="slPageInputs">
+                        <div class="labelPlaceholder">
+                            <label for="mobilenumber" class="slLable">Mobile Number</label>
+                        </div>
                         <input type="text" id="mobilenumber" name="mobilenumber" />
                     </div>
                     <div>
                         <input type="file" name="userimage">
                     </div>
                     <button type="submit" class="btn" name="submit">Sign Up</button>
-                    <p class="signupPage-SignInLink">
+                    <p class="slPage-SignInLink">
                         Already Have a account? <span><a href="?action=login">Sign In</a></span>
                     </p>
                 </div>
             </form>
         </div>
     </div>
+    <script src="./../script/formValidate.js"></script>
 </body>
 
 </html>

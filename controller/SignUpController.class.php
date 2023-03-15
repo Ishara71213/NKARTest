@@ -35,34 +35,7 @@ class SignUpController extends SignupModel{
                 die();
             }
             
-            // if(isset($_FILES["userimage"]) && $_FILES["userimage"]['error']===0){
-            //     $file=$_FILES["userimage"];
-            //     $imageName=$file['name'];
-            //     // $imageFull_path=$file['full_path'];
-            //     $imageType=$file['type'];
-            //     $imageTmp_name=$file['tmp_name'];
-            //     $imageError=$file['error'];
-            //     $imageSize=$file['size'];
-            //     print_r($file);
-
-            //     $imageExtArr=explode(".",$imageName);
-            //     $imageExt=strtolower(end($imageExtArr));
-            //     $allowedFileTypes=array('jpg','png');
-
-            //     if(in_array($imageExt,$allowedFileTypes)){
-            //             if($imageSize<1000000){
-            //                 $imageUpdatedName="username-". date("Ymd")."-".date("His").".".$imageExt;
-            //                 $fileDestination="../userimages/".$imageUpdatedName;
-            //                 move_uploaded_file($imageTmp_name,$fileDestination);
-            //             }else{
-            //                 echo "file too large";
-            //             }
-            //     }else{
-            //         echo "file not suppourted format";
-            //     }
-            // }else{
-            //     echo "file upload failed";
-            // }
+        
             $this->signUp($firstName,$lastName,$email,$password,$mobilenumber,$file);
             die();
         }

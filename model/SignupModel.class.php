@@ -67,49 +67,21 @@ require "../classes/ImageUpload.class.php";
     
     public function signUp($firstName,$lastName,$email,$password,$mobileNum,$file){
         
-        
-    
             $query="INSERT INTO login (firstName, lastName, email, password, mobileNum) VALUES (?,?,?,?,?);";
+            try{
+                    $this->db->beginTransaction();
+                $stmt =$this->db->prepare($query);
+                $stmt->execute([$firstName,$lastName,$email,$password,$mobileNum]);  
+                $lastUserId = $this->db->lastInsertId("userId");
+                // var_dump($lastUserId);   
+                $imageUpload=new ImageUpload($file);
+                $imageUpload->saveImage($lastUserId);
+                $this->db->commit();
+                header("location:./index.php?action=dashboard&success=usercreated");
+            }catch(Exception $e){
+                header("location:./index.php?action=signup&error=failedtoCreateUser");
+            }
             
-            $this->db->beginTransaction();
-            $stmt =$this->db->prepare($query);
-            $stmt->execute([$firstName,$lastName,$email,$password,$mobileNum]);  
-            $lastUserId = $this->db->lastInsertId("userId");
-        
-        
-        var_dump($lastUserId);
-        // header("location:./index.php?action=signup&success=usercreated");
-            $imageUpload=new ImageUpload($file);
-            $imageUpload->saveImage($lastUserId);
-
-            // if($file['error']===0){
-            //     $imageName=$file['name'];
-            //     $imageType=$file['type'];
-            //     $imageTmp_name=$file['tmp_name'];
-            //     $imageError=$file['error'];
-            //     $imageSize=$file['size'];
-            //     // print_r($file);
-    
-            //     $imageExtArr=explode(".",$imageName);
-            //     $imageExt=strtolower(end($imageExtArr));
-            //     $allowedFileTypes=array('jpg','png');
-    
-            //     if(in_array($imageExt,$allowedFileTypes)){
-            //             if($imageSize<1000000){
-            //                 $imageUpdatedName=$lastUserId."-"."userimage-". date("Ymd")."-".date("His").".".$imageExt;
-            //                 $fileDestination="../userimages/".$imageUpdatedName;
-            //                 move_uploaded_file($imageTmp_name,$fileDestination);
-                            
-            //             }else{
-            //                 return "file too large";
-            //             }
-            //     }else{
-            //         return "file not suppourted format";
-            //     }
-            // }else{
-            //     return "file upload failed";
-            // }
-            $this->db->commit();
             exit();
         }
         

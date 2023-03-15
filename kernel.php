@@ -1,5 +1,5 @@
 <?php 
- 
+session_start();
 
 include_once(__DIR__.'/connection/Dbh.class.php');  
 include_once(__DIR__.'/classes/ErrorHandler.php');
@@ -28,8 +28,14 @@ if(!empty($route)){
     $action=$routes[1];
 }else{
     // header("location:./index.php?action=signup");
-    $controller='SignUpController';
-    $action='indexAction';
+    if(isset($_SESSION['email'])){
+        $controller='DashBoardController';
+        $action='indexAction';
+    }else{
+        $controller='SignUpController';
+        $action='indexAction';
+    }
+   
     // $controller='LoginController';
     // $action='indexAction';
 }

@@ -1,5 +1,6 @@
  <?php 
 
+ 
  class LoginModel extends Dbh{
 
     protected $user;
@@ -47,7 +48,9 @@
         if($stmt->rowcount()===1){
             $resultCheck=true;
             $this->user=$stmt->fetch();
-        }else{
+            $_SESSION["email"]=$this->user['email'];
+            $_SESSION["firstName"]=$this->user['firstName'];
+            $_SESSION["lastName"]=$this->user['lastName'];
             $resultCheck=false;
         }
         return $resultCheck;  

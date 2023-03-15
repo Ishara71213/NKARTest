@@ -1,5 +1,6 @@
 <?php
 
+ 
 class LoginController extends LoginModel{
 
 
@@ -13,7 +14,7 @@ class LoginController extends LoginModel{
             $password=$_POST["password"];
             
             if($this->emptyInput($email,$password)){
-                header("location:./index.php?action=login&error=emptyTnputs");
+                header("location:./index.php?action=login&error=emptyInputs");
                 die();
             }  
             if($this->invalidEmail($email)){
@@ -21,17 +22,17 @@ class LoginController extends LoginModel{
                 die();
             }
             if($this->login($email,$password)){
-                var_dump($this->user);
-                // header("location:./index.php?action=dashboard");
+                // var_dump($this->user);
+                header("location:./index.php?action=dashboard&success=userLogIn");
                 // $debug=$this->login($email,$password);
-                echo"sucssesagain";
+            }else{
+                header("location:./index.php?action=login&error=invalidEmailPwCom");
             }
             die();                 
         }
     }
     
     public function routeManager(){
-        return require_once(__DIR__.'/../view/Login.php');
-        
+        return require_once(__DIR__.'/../view/Login.php'); 
     }
 }
