@@ -70,6 +70,6 @@ class SignUpController extends SignupModel{
     }
     
     public function routeManager(){
-        return require_once(__DIR__.'/../view/SignUp.php');  
+        return require_once(__DIR__.'/../view/Signup.php');  
     }
 }
