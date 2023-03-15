@@ -1,6 +1,7 @@
  <?php 
 
 require "../classes/ImageUpload.class.php";
+// require "../MODEL/LoginModel.class.php";
 
  class SignupModel extends Dbh{
 
@@ -69,7 +70,7 @@ require "../classes/ImageUpload.class.php";
         
             $query="INSERT INTO login (firstName, lastName, email, password, mobileNum) VALUES (?,?,?,?,?);";
             try{
-                    $this->db->beginTransaction();
+                $this->db->beginTransaction();
                 $stmt =$this->db->prepare($query);
                 $stmt->execute([$firstName,$lastName,$email,$password,$mobileNum]);  
                 $lastUserId = $this->db->lastInsertId("userId");
@@ -77,7 +78,12 @@ require "../classes/ImageUpload.class.php";
                 $imageUpload=new ImageUpload($file);
                 $imageUpload->saveImage($lastUserId);
                 $this->db->commit();
+                                
+                $_SESSION["email"]=$email;
+                $_SESSION["firstName"]=$firstName;
+                $_SESSION["lastName"]=$tlastName;
                 header("location:./index.php?action=dashboard&success=usercreated");
+                
             }catch(Exception $e){
                 header("location:./index.php?action=signup&error=failedtoCreateUser");
             }

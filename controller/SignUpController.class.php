@@ -1,5 +1,6 @@
 <?php
 
+
 class SignUpController extends SignupModel{
 
 
