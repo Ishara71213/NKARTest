@@ -16,7 +16,24 @@ spl_autoload_register(function($class){
     }
 });
 
+print_r($_POST);    
+include_once(__DIR__."/routes/route.php");
 
 
-$load_new=new SignUpController();
-$index=$load_new->indexAction();
+if(!empty($route)){
+    $routes=explode('@',$route);
+    $controller=$routes[0];
+    $action=$routes[1];
+}else{
+    // header("location:./index.php?action=signup");
+    $controller='SignUpController';
+    $action='indexAction';
+    // $controller='LoginController';
+    // $action='indexAction';
+}
+
+// $load_new=new SignUpController();
+$load_new=new $controller();
+$index=$load_new->$action();
+
+   

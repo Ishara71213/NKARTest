@@ -80,9 +80,11 @@ a {
   text-align: center;
 }
 .signupPage-SignInLink span a {
+  cursor: pointer;
   color: red;
 }
 .signupPage-SignInLink span a:hover {
+  cursor: pointer;
   text-decoration: underline;
   color: blue;
 }
