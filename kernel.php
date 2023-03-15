@@ -2,7 +2,7 @@
  
 
 include_once(__DIR__.'/connection/Dbh.class.php');  
- 
+include_once(__DIR__.'/classes/ErrorHandler.php');
 
 spl_autoload_register(function($class){
     if(file_exists(__DIR__.'/controller/'.$class.'.class.php')){
@@ -16,7 +16,9 @@ spl_autoload_register(function($class){
     }
 });
 
-print_r($_POST);    
+// set_exception_handler("ErrorHandler::handleException");
+
+// print_r($_POST);    
 include_once(__DIR__."/routes/route.php");
 
 
