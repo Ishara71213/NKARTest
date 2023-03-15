@@ -26,14 +26,14 @@ if(!empty($route)){
     $action=$routes[1];
 }else{
     // header("location:./index.php?action=signup");
-    $controller='SignUpController';
-    $action='indexAction';
+    // $controller='SignUpController';
+    // $action='indexAction';
     // $controller='LoginController';
     // $action='indexAction';
 }
 
 // $load_new=new SignUpController();
-$load_new=new $controller();
-$index=$load_new->$action();
+// $load_new=new $controller();
+// $index=$load_new->$action();
 
    
