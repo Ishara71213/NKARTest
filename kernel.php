@@ -28,12 +28,14 @@ if(!empty($route)){
     // header("location:./index.php?action=signup");
     // $controller='SignUpController';
     // $action='indexAction';
-    // $controller='LoginController';
-    // $action='indexAction';
+    
+    if(!empty($parts)){
+        include_once(__DIR__."/view/r404.php");
+    }
 }
 
 // $load_new=new SignUpController();
-// $load_new=new $controller();
-// $index=$load_new->$action();
+$load_new=new $controller();
+$index=$load_new->$action();
 
    
