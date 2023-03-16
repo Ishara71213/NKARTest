@@ -8,15 +8,15 @@ let errorContainer = document.getElementById("errorContainer");
 if (backEndErr) {
   errorContainer.classList.remove("displayNone");
   switch (backEndErr) {
-    case "passwordNotMatching":
-      error.innerHTML = "passwords not matching";
-      break;
+    // case "passwordNotMatching":
+    //   error.innerHTML = "passwords not matching";
+    //   break;
     case "emptyInputs":
       error.innerHTML = "complete all the input fields";
       break;
-    case "passwordNotMatching":
-      error.innerHTML = "Passwords not matching";
-      break;
+    // case "passwordNotMatching":
+    //   error.innerHTML = "Passwords not matching";
+    //   break;
     case "passwordNotMatching":
       error.innerHTML = "Passwords not matching";
       break;

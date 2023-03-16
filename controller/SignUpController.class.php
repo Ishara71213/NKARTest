@@ -19,6 +19,8 @@ class SignUpController extends SignupModel{
             $mobilenumber=$_POST['mobilenumber'];
             $file=$_FILES["userimage"];
             
+            
+            
                 
             if($this->emptyInput($firstName,$lastName,$email,$password,$confirmPassword,$mobilenumber)){
                 header("location:./index.php?action=signup&error=emptyInputs");

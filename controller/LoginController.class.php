@@ -23,7 +23,7 @@ class LoginController extends LoginModel{
                 die();
             }
             if($this->login($email,$password)){
-                // var_dump($this->user);
+               
                 header("location:./index.php?action=dashboard&success=userLogIn");
                 // $debug=$this->login($email,$password);
             }else{

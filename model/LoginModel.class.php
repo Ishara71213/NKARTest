@@ -35,22 +35,33 @@
  
     public function login($email,$password){
         
-        $query='SELECT firstName,lastName,email FROM login WHERE email = ? AND password = ?;';
+        // $query='SELECT firstName,lastName,email FROM login WHERE email = ? AND password = ?;';
+        $query='SELECT firstName,lastName,email,password FROM login WHERE email = ?;';
 
         $stmt =$this->db->prepare($query);
 
-        if(!$stmt->execute([$email,$password])){
+        
+        if(!$stmt->execute([$email])){
             $stmt=null;
             header("location:./index.php?error=stmtfailed");
             exit();
-        }     
+        } 
+
         $resultCheck;
         if($stmt->rowcount()===1){
-            $resultCheck=true;
             $this->user=$stmt->fetch();
-            $_SESSION["email"]=$this->user['email'];
-            $_SESSION["firstName"]=$this->user['firstName'];
-            $_SESSION["lastName"]=$this->user['lastName'];
+            // print_r($this->user);
+            // print_r(password_verify($password, $this->user['password']));
+            
+            if(password_verify($password, $this->user['password'])){
+                $resultCheck=true;
+                $_SESSION["email"]=$this->user['email'];
+                $_SESSION["firstName"]=$this->user['firstName'];
+                $_SESSION["lastName"]=$this->user['lastName'];
+            }else{
+                $resultCheck=false;
+            }
+        }else{
             $resultCheck=false;
         }
         return $resultCheck;  

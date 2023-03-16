@@ -12,9 +12,10 @@
 <body>
     <div class="slPage-container">
         <div class="slPageForm-container">
-            <div class="backEndError  displayNone" id="errorContainer">
+
+            <div class="backEndError displayNone" id="errorContainer">
                 <img src="../img/error.svg" alt="errorlogo" width="15px" />
-                <p id="backEndError"></P>
+                <p id="backEndError"></p>
             </div>
 
             <div class="slPageLogo mgLogoLoginPage ">Log In</div>
@@ -31,7 +32,11 @@
                         <div class="labelPlaceholder">
                             <label for="password" class="slLable">Password</label>
                         </div>
-                        <input type="password" id="password" name="password" />
+                        <div class="passwordVisibleBtn" id="visibleIcon">
+                            <img class="eyeIcon" src="../img/eye.svg" alt="visibleBtn" width="16px"
+                                onclick="togleVisibility()" />
+                        </div>
+                        <input type="password" id="password" name="password" autocomplete />
                     </div>
                     <button type="submit" class="btn" name="submit">Sign In</button>
                     <p class="slPage-SignInLink  forgottenPassword">
@@ -44,7 +49,8 @@
             </form>
         </div>
     </div>
-    <script src="./../script/formValidate.js"></script>
+    <script src="./../script/loginErrorHandler.js"></script>
+    <script src="./../script/LoginFormElementhandler.js"></script>
 </body>
 
 </html>

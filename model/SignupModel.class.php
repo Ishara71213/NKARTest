@@ -87,9 +87,15 @@ require "../classes/ImageUpload.class.php";
             try{
                 $this->db->beginTransaction();
                 $stmt =$this->db->prepare($query);
-                $stmt->execute([$firstName,$lastName,$email,$password,$mobileNum]);  
+                
+                $options = [
+                    'cost' => 12,
+                ];
+                $hasedPassword=password_hash($password, PASSWORD_BCRYPT, $options);
+
+                $stmt->execute([$firstName,$lastName,$email,$hasedPassword,$mobileNum]);  
                 $lastUserId = $this->db->lastInsertId("userId");
-                // var_dump($lastUserId);   
+               
                 $imageUpload=new ImageUpload($file);
                 $imageUpload->saveImage($lastUserId);
                 $this->db->commit();
