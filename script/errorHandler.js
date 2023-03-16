@@ -29,6 +29,9 @@ if (backEndErr) {
     case "invalidEmailPwCom":
       error.innerHTML = "Invalid email and password combination";
       break;
+    case "invalidImageFormat":
+      error.innerHTML = "Invalid image format";
+      break;
     default:
       error.innerHTML = "";
   }
@@ -176,3 +179,5 @@ mobilenumberCheck.inputElement.onblur = function () {
   mobilenumberCheck.singlton = true;
   mobilenumberCheck.errorTriger();
 };
+
+//-----------------------------form element manipulation------------------------

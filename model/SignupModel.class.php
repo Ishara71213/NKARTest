@@ -65,6 +65,21 @@ require "../classes/ImageUpload.class.php";
         } 
         return $result;
     }
+    //Imvalid image file type
+      public function imageNotMatch($file){
+        $filename = $file['name'];
+        $ext = pathinfo($filename, PATHINFO_EXTENSION);
+        $allowed = array("apng","bmp","gif","jpeg","pjpeg","png","svg","tiff","webp","x-icon","jpg");
+        $result;
+        if (!in_array($ext, $allowed)) {
+            $result=true;
+       }
+        else{
+            $result=false;
+        } 
+        return $result;
+    }
+    
     
     public function signUp($firstName,$lastName,$email,$password,$mobileNum,$file){
         

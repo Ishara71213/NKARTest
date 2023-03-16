@@ -12,9 +12,9 @@
 <body>
     <div class="slPage-container">
         <div class="slPageForm-container">
-            <div class="backEndError  displayNone" id="errorContainer">
+            <div class="backEndError displayNone" id="errorContainer">
                 <img src="../img/error.svg" alt="errorlogo" width="15px" />
-                <p id="backEndError"></P>
+                <p id="backEndError"></p>
             </div>
             <div class="slPageLogo">Sign Up</div>
             <form class="slPageForm" method="post" enctype="multipart/form-data">
@@ -24,7 +24,7 @@
                             <label for="firstName" class="slLable">First name</label>
                         </div>
                         <input type="text" id="firstName" name="firstName" onkeyup="firstNameCheck.errorTriger();" />
-                        <p id="errFirstNamee" class=""></p>
+                        <p id="errFirstNamee" class="formValidationErr"></p>
                     </div>
                     <div class="slPageInputs">
                         <div class="labelPlaceholder">
@@ -43,6 +43,10 @@
                     <div class="slPageInputs">
                         <div class="labelPlaceholder">
                             <label for="password" class="slLable">Password</label>
+                        </div>
+                        <div class="passwordVisibleBtn" id="visibleIcon">
+                            <img class="eyeIcon" src="../img/eye.svg" alt="visibleBtn" width="16px"
+                                onclick="togleVisibility()" />
                         </div>
                         <input type="password" id="password" name="password" onkeyup="passwordCheck.errorTriger()"
                             autocomplete />
@@ -64,18 +68,22 @@
                             onkeyup="mobilenumberCheck.errorTriger()" />
                         <p id="errMobilenumber" class="formValidationErr"></p>
                     </div>
-                    <div>
-                        <input type="file" name="userimage">
+                    <div id="addImageBtn" class="fileUploadContainer" onclick="fileUpload()">
+                        <img id="addImage" class="addImage" src="../img/addImage.svg" alt="addImage" width="16px" />
+                        <p class="" id="addImageText">Add your image</p>
+                        <input id="addImageInput" class="fileUpload" type="file" name=" userimage" />
                     </div>
                     <button type="submit" class="btn" name="submit">Sign Up</button>
                     <p class="slPage-SignInLink">
-                        Already Have a account? <span><a href="?action=login">Sign In</a></span>
+                        Already Have a account?
+                        <span><a href="?action=login">Sign In</a></span>
                     </p>
                 </div>
             </form>
         </div>
     </div>
-    <script src="./../script/formValidate.js"></script>
+    <script src="./../script/errorHandler.js"></script>
+    <script src="./../script/formElementHandle.js"></script>
 </body>
 
 </html>

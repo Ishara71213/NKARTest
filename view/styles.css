@@ -84,7 +84,52 @@ input:focus {
   background-color: white;
   display: inline;
 }
-#errFirstNamee {
+
+.passwordVisibleBtn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+  opacity: 0.4;
+}
+.visiblity {
+  opacity: 1;
+}
+
+.fileUpload {
+  display: none;
+}
+.fileUploadContainer {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 40px;
+  background-color: #f3eefa;
+  border: 2px dashed rgb(225, 197, 251);
+  border-radius: 5px;
+  font-size: 14px;
+  color: #e1c5fb;
+  align-items: center;
+  gap: 8px;
+  overflow: hidden;
+  cursor: pointer;
+}
+.imageName {
+  text-align: center;
+  font-size: 12px;
+  color: #c29be6;
+}
+.imageNameErr {
+  text-align: center;
+  font-size: 14px;
+  color: rgb(253, 140, 147);
+}
+.fileUploadContainerError {
+  background: #fbecec;
+  border: 2px dashed #f8cccc;
+}
+
+/* #errFirstNamee {
   z-index: 4;
   position: absolute;
   bottom: 7px;
@@ -94,7 +139,7 @@ input:focus {
   font-size: 12px;
   font-weight: 500;
   text-align: center;
-}
+} */
 
 .formValidationErr {
   z-index: 4;
@@ -123,7 +168,9 @@ input:focus {
   background-color: #5718b6;
   transition: 0.4s ease;
 }
+
 .slPage-SignInLink {
+  color: #442a6a;
   text-align: center;
 }
 .slPage-SignInLink span a {
@@ -228,7 +275,28 @@ input:focus {
     padding: 30px 30px;
     -webkit-box-shadow: none;
     -moz-box-shadow: none;
-    box-shadow: none;
+
     border-radius: 12px;
+    -webkit-box-shadow: -2px 3px 69px -5px rgba(0, 0, 0, 0.14);
+    -moz-box-shadow: -2px 3px 69px -5px rgba(0, 0, 0, 0.14);
+    box-shadow: -2px 3px 69px -5px rgba(0, 0, 0, 0.14);
+    border-radius: 12px;
+  }
+  .headerNavigation {
+    padding: 50px 50px;
+  }
+}
+
+@media only screen and (max-width: 550px) {
+  .slPageForm-container {
+    /* width: 50vw; */
+    min-width: 350px;
+    height: fit-content;
+    background-color: rgb(255, 255, 255);
+    box-shadow: none;
+    padding: 30px 30px;
+  }
+  .headerNavigation {
+    padding: 30px 20px;
   }
 }
