@@ -23,38 +23,46 @@
                         <div class="labelPlaceholder">
                             <label for="firstName" class="slLable">First name</label>
                         </div>
-                        <input type="text" id="firstName" name="firstName" onkeyup="checkFirstName()" />
-                        <p id="errFirstName"></p>
+                        <input type="text" id="firstName" name="firstName" onkeyup="firstN.errorTriger()" />
+                        <p id="errFirstName" class="formValidationErr"></p>
                     </div>
                     <div class="slPageInputs">
                         <div class="labelPlaceholder">
                             <label for="lastName" class="slLable"> Last name</label>
                         </div>
-                        <input type="text" id="lastName" name="lastName" />
+                        <input type="text" id="lastName" name="lastName" onkeyup="lastN.errorTriger()" />
+                        <p id="errLastName" class="formValidationErr"></p>
                     </div>
                     <div class="slPageInputs">
                         <div class="labelPlaceholder">
                             <label for="Email" class="slLable"> Email</label>
                         </div>
-                        <input type="email" id="email" name="email" />
+                        <input id="email" name="email" onkeyup="emailCheck.errorTriger()" />
+                        <p id="errEmail" class="formValidationErr"></p>
                     </div>
                     <div class="slPageInputs">
                         <div class="labelPlaceholder">
                             <label for="password" class="slLable">Password</label>
                         </div>
-                        <input type="password" id="password" name="password" />
+                        <input type="password" id="password" name="password" onkeyup="passwordCheck.errorTriger()"
+                            autocomplete />
+                        <p id="errpassword" class="formValidationErr"></p>
                     </div>
                     <div class="slPageInputs">
                         <div class="labelPlaceholder">
                             <label for="confirmPassword" class="slLable">Confirm password</label>
                         </div>
-                        <input type="password" id="confirmPassword" name="confirmPassword" />
+                        <input type="password" id="confirmPassword" name="confirmPassword"
+                            onkeyup="comfirmPasswordCheck()" autocomplete />
+                        <p id="errconfirmPassword" class="formValidationErr"></p>
                     </div>
                     <div class="slPageInputs">
                         <div class="labelPlaceholder">
                             <label for="mobilenumber" class="slLable">Mobile Number</label>
                         </div>
-                        <input type="text" id="mobilenumber" name="mobilenumber" />
+                        <input type="text" id="mobilenumber" name="mobilenumber"
+                            onkeyup="mobilenumberCheck.errorTriger()" />
+                        <p id="errMobilenumber" class="formValidationErr"></p>
                     </div>
                     <div>
                         <input type="file" name="userimage">

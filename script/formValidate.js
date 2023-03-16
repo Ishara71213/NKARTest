@@ -36,20 +36,142 @@ if (backEndErr) {
   errorContainer.classList.add("displayNone");
 }
 
-let firstName = document.getElementById("firstName");
-let inputError = document.getElementById("errFirstName");
-let singlton = false;
+// let firstName = document.getElementById("firstName");
+// let inputErrorfn = document.getElementById("errFirstName");
+// let singltonfn = false;
 
-firstName.onblur = function () {
-  singlton = true;
-  checkFirstName();
-};
+// firstName.onblur = function () {
+//   singltonfn = true;
+//   checkFirstName();
+// };
 
-function checkFirstName() {
-  if (firstName.value.length < 5 && singlton) {
-    inputError.classList.remove("displayNone");
-    inputError.innerHTML = "**Name must be longer than 5 letters";
-  } else {
-    inputError.classList.add("displayNone");
+// function checkFirstName() {
+//   if (firstName.value.length < 5 && singlton) {
+//     inputErrorfn.classList.remove("displayNone");
+//     inputErrorfn.innerHTML = "**Name must be longer than 5 letters";
+//   } else {
+//     inputErrorfn.classList.add("displayNone");
+//   }
+// }
+
+class LiveErrCheck {
+  constructor(inputElement, errMsgElement, errMsg) {
+    this.elementname = inputElement;
+    this.inputElement = document.getElementById(inputElement);
+    this.errMsgElement = document.getElementById(errMsgElement);
+    this.errMsg = errMsg;
+    this.singlton = false;
+  }
+
+  errorTriger() {
+    // console.log(this.inputElement.value);
+    let pattern = /[a-zA-Z0-9,\.\_]/; //only letters
+
+    switch (this.elementname) {
+      case "firstName":
+      case "lastName":
+        pattern = /^(?=.{5})/;
+        //more than 5 characters
+        break;
+      case "email":
+        pattern = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
+        // email format
+        break;
+      case "password":
+        pattern =
+          /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/;
+        // Minimum eight characters, at least one letter, one number and one special character
+        break;
+      case "mobilenumber":
+        pattern = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/;
+        // Minimum eight characters, at least one letter, one number and one special character
+        break;
+    }
+
+    console.log(this.inputElement.value);
+    var bool = !pattern.test(this.inputElement.value);
+    // console.log(bool && this.singlton);
+    if (bool && this.singlton) {
+      this.errMsgElement.classList.remove("displayNone");
+      this.errMsgElement.innerHTML = this.errMsg;
+    } else {
+      this.errMsgElement.classList.add("displayNone");
+    }
   }
 }
+//first name validate
+let firstN = new LiveErrCheck(
+  "firstName",
+  "errFirstName",
+  "**First Name must be longer than 5 letters"
+);
+firstN.inputElement.onblur = function () {
+  firstN.singlton = true;
+  firstN.errorTriger();
+};
+
+//laast Name Validate
+let lastN = new LiveErrCheck(
+  "lastName",
+  "errLastName",
+  "**Last Name must be longer than 5 letters"
+);
+lastN.inputElement.onblur = function () {
+  lastN.singlton = true;
+  lastN.errorTriger();
+};
+
+//Email validate
+let emailCheck = new LiveErrCheck(
+  "email",
+  "errEmail",
+  "**Invalid email format"
+);
+emailCheck.inputElement.onblur = function () {
+  emailCheck.singlton = true;
+  emailCheck.errorTriger();
+};
+
+//PASSWORD validate
+let passwordCheck = new LiveErrCheck(
+  "password",
+  "errpassword",
+  "**PW must have letter and symbols and numbers "
+);
+passwordCheck.inputElement.onblur = function () {
+  passwordCheck.singlton = true;
+  passwordCheck.errorTriger();
+};
+
+// comfirmpassword validate
+let confirmPWInput = document.getElementById("confirmPassword");
+let confirmPWError = document.getElementById("errconfirmPassword");
+let singltonCPF = false;
+
+confirmPWInput.onblur = function () {
+  singltonCPF = true;
+  comfirmPasswordCheck();
+};
+
+function comfirmPasswordCheck() {
+  if (
+    confirmPWInput.value !== passwordCheck.inputElement.value &&
+    singltonCPF
+  ) {
+    confirmPWError.classList.remove("displayNone");
+    confirmPWError.innerHTML = "**Password not matching";
+  } else {
+    confirmPWError.classList.add("displayNone");
+  }
+}
+
+//PASSWORD validate
+let mobilenumberCheck = new LiveErrCheck(
+  "mobilenumber",
+  "errMobilenumber",
+  "**Mobile number can have numbers only "
+);
+mobilenumberCheck.inputElement.onblur = function () {
+  mobilenumberCheck.singlton = true;
+  mobilenumberCheck.errorTriger();
+};

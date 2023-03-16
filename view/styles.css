@@ -103,11 +103,11 @@ input:valid + .labelPlaceholder {
 input:focus + .labelHide {
   display: none;
 } */
-#errFirstName {
+.formValidationErr {
   z-index: 4;
   position: absolute;
   bottom: 7px;
-  left: 20px;
+  left: 10px;
   padding-bottom: 0.5px;
   color: rgb(240, 100, 109);
   font-size: 12px;

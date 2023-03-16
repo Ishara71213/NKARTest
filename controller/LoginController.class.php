@@ -12,7 +12,8 @@ class LoginController extends LoginModel{
 
             $email=$_POST["email"];
             $password=$_POST["password"];
-            
+
+           
             if($this->emptyInput($email,$password)){
                 header("location:./index.php?action=login&error=emptyInputs");
                 die();
