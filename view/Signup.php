@@ -23,8 +23,8 @@
                         <div class="labelPlaceholder">
                             <label for="firstName" class="slLable">First name</label>
                         </div>
-                        <input type="text" id="firstName" name="firstName" onkeyup="firstN.errorTriger()" />
-                        <p id="errFirstName" class="formValidationErr"></p>
+                        <input type="text" id="firstName" name="firstName" onkeyup="firstNameCheck.errorTriger();" />
+                        <p id="errFirstNamee" class=""></p>
                     </div>
                     <div class="slPageInputs">
                         <div class="labelPlaceholder">

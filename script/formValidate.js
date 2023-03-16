@@ -69,6 +69,9 @@ class LiveErrCheck {
 
     switch (this.elementname) {
       case "firstName":
+        pattern = /^(?=.{5})/;
+        //more than 5 characters
+        break;
       case "lastName":
         pattern = /^(?=.{5})/;
         //more than 5 characters
@@ -88,9 +91,7 @@ class LiveErrCheck {
         break;
     }
 
-    console.log(this.inputElement.value);
     var bool = !pattern.test(this.inputElement.value);
-    // console.log(bool && this.singlton);
     if (bool && this.singlton) {
       this.errMsgElement.classList.remove("displayNone");
       this.errMsgElement.innerHTML = this.errMsg;
@@ -100,14 +101,14 @@ class LiveErrCheck {
   }
 }
 //first name validate
-let firstN = new LiveErrCheck(
+let firstNameCheck = new LiveErrCheck(
   "firstName",
-  "errFirstName",
+  "errFirstNamee",
   "**First Name must be longer than 5 letters"
 );
-firstN.inputElement.onblur = function () {
-  firstN.singlton = true;
-  firstN.errorTriger();
+firstNameCheck.inputElement.onblur = function () {
+  firstNameCheck.singlton = true;
+  firstNameCheck.errorTriger();
 };
 
 //laast Name Validate

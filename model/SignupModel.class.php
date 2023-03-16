@@ -1,4 +1,4 @@
- <?php 
+<?php 
 
 require "../classes/ImageUpload.class.php";
 // require "../MODEL/LoginModel.class.php";
